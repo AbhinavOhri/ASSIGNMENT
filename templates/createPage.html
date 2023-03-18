@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
+      integrity="sha512-eSAwlYzvKjWdO8O4G2C0q3OvI2W0j8e/n78Ji+ny+jNAvLCaKzmp8X0Zpg5FF5i44U6oxPp6hOWy6IMjK6w1GQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      form {
+        max-width: 500px;
+        margin: auto;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="number"] {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px 12px;
+        margin-bottom: 16px;
+        width: 100%;
+        font-size: 1rem;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Create Book</h1>
+      <form method="POST" action="{{ url_for('create_book') }}">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="isbn" class="form-label">ISBN</label>
+          <input
+            type="text"
+            class="form-control"
+            id="isbn"
+            name="isbn"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            id="quantity"
+            name="quantity"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="location"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </body>
+</html>

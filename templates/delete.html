@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .header h1 {
+        margin: 0;
+      }
+
+      .btn {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .btn:hover {
+        background-color: #555;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #555;
+      }
+
+      .form-group.error input {
+        border-color: #ff0000;
+      }
+
+      .error-message {
+        color: #ff0000;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .success-message {
+        color: #008000;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .delete-message {
+        color: #ff0000;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .form-inline {
+        display: flex;
+        align-items: center;
+      }
+
+      .form-inline label {
+        margin-right: 10px;
+      }
+
+      .form-inline input {
+        margin-right: 10px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .pagination a {
+        color: #333;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+      }
+
+      .pagination a.active {
+        background-color: #333;
+        color: #fff;
+        border-color: #333;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .form-inline {
+          flex-direction: column;
+        }
+
+        .form-inline label {
+          margin-bottom: 5px;
+        }
+
+        .form-inline input {
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Book</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Delete Book</h1>
+      <form
+        action="{{ url_for('delete_book', book_id=book.id) }}"
+        method="POST"
+      >
+        <p>Are you sure you want to delete the following book?</p>
+        <ul>
+          <li>Title: {{ book.title }}</li>
+          <li>Author: {{ book.author }}</li>
+          <li>ISBN: {{ book.isbn }}</li>
+          <li>Quantity: {{ book.quantity }}</li>
+          <li>Location: {{ book.location }}</li>
+        </ul>
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-secondary" href="{{ url_for('get_books') }}"
+          >Cancel</a
+        >
+      </form>
+    </div>
+  </body>
+</html>

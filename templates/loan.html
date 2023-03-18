@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loan a Book</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Loan a Book</h1>
+    <form method="POST">
+      <label for="book_id">Book ID:</label>
+      <input type="text" id="book_id" name="book_id" required /><br /><br />
+      <label for="patron_id">Patron ID:</label>
+      <input type="text" id="patron_id" name="patron_id" required /><br /><br />
+      <label for="due_date">Due Date:</label>
+      <input type="date" id="due_date" name="due_date" required /><br /><br />
+      <button type="submit">Loan Book</button>
+    </form>
+  </body>
+</html>

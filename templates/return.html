@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Return a Book</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Return a Book</h1>
+    <form method="POST">
+      <label for="loan_id">Loan ID:</label>
+      <input type="text" id="loan_id" name="loan_id" required /><br /><br />
+      <label for="return_date">Return Date:</label>
+      <input
+        type="date"
+        id="return_date"
+        name="return_date"
+        required
+      /><br /><br />
+      <button type="submit">Return Book</button>
+    </form>
+  </body>
+</html>

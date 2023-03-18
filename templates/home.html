@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #0069d9;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+      }
+
+      .btn-success {
+        background-color: #28a745;
+      }
+
+      .btn-danger {
+        background-color: #dc3545;
+      }
+
+      .btn-warning {
+        background-color: #ffc107;
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid #007bff;
+        color: #007bff;
+      }
+
+      .btn-outline:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+
+      .btn-group .btn {
+        margin: 0 10px;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title>Home</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %} {% endif %} {% endwith %}
+    <h1>Welcome to the Library</h1>
+    <p>Please select an option below:</p>
+    <ul>
+      <li><a href="/books">View all books</a></li>
+      <li><a href="/books/new">Add a new book</a></li>
+      <li><a href="/patrons">View all patrons</a></li>
+      <li><a href="/loan">Loan</a></li>
+      <li><a href="/loan/<loan_id>/return">Return a book</a></li>
+      <li><a href="/librarians">View all librarians</a></li>
+    </ul>
+  </body>
+</html>

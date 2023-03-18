@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Patron</title>
+    <style>
+      /* Style for the form */
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+        font-family: Arial, sans-serif;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #ccc;
+      }
+
+      /* Style for the form fields */
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      /* Style for the form submit button */
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /* Style for the form submit button when disabled */
+      input[type="submit"]:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      /* Style for the form submit button on hover */
+      input[type="submit"]:hover:not([disabled]) {
+        background-color: #45a049;
+      }
+
+      /* Style for the error message */
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Create Patron</h1>
+    <form action="{{ url_for('create_patron') }}" method="POST">
+      <label for="name">First Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required />
+
+      <input type="submit" value="Create" />
+    </form>
+  </body>
+</html>
